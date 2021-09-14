@@ -22,32 +22,32 @@ steps:
   args:
     - 'build'
     - '-t'
-    - 'gcr.io/google-samples/hello-app:1.1'
+    - 'gcr.io/hello-app:1.1'
     - '-t'
-    - 'us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.1'
+    - 'us-docker.pkg.dev/gke/hello-app:1.1'
     - '.'
   dir: 'hello-app'
 
 # Create back-up of main.go and replace "Version: 1.0.0" with "Version: 2.0.0".
-- name: 'bash'
-  args:
-    - '-c'
-    - 'cp -p hello-app/main.go hello-app/main.go.bak && sed "s/Version: 1.0.0/Version: 2.0.0/g" hello-app/main.go.bak > hello-app/main.go'
+#- name: 'bash'
+ # args:
+  #  - '-c'
+   # - 'cp -p hello-app/main.go hello-app/main.go.bak && sed "s/Version: 1.0.0/Version: 2.0.0/g" hello-app/main.go.bak > hello-app/main.go'
 
 # Build hello-app:2.0.
-- name: 'gcr.io/cloud-builders/docker'
-  args:
-    - 'build'
-    - '-t'
-    - 'gcr.io/google-samples/hello-app:2.0'
-    - '-t'
-    - 'us-docker.pkg.dev/google-samples/containers/gke/hello-app:2.0'
-    - '.'
-  dir: 'hello-app'
+#- name: 'gcr.io/cloud-builders/docker'
+ # args:
+  #  - 'build'
+   # - '-t'
+    #- 'gcr.io/google-samples/hello-app:2.0'
+    #- '-t'
+    #- 'us-docker.pkg.dev/google-samples/containers/gke/hello-app:2.0'
+    #- '.'
+  #dir: 'hello-app'
 
 # Push images.
-images:
-  - 'gcr.io/google-samples/hello-app:1.1'
-  - 'us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.1'
-  - 'gcr.io/google-samples/hello-app:2.0'
-  - 'us-docker.pkg.dev/google-samples/containers/gke/hello-app:2.0'
+#images:
+ # - 'gcr.io/google-samples/hello-app:1.1'
+ # - 'us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.1'
+ # - 'gcr.io/google-samples/hello-app:2.0'
+ # - 'us-docker.pkg.dev/google-samples/containers/gke/hello-app:2.0'
