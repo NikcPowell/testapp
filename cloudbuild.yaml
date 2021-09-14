@@ -18,7 +18,7 @@
 steps:
 
 # Build hello-app:1.0.
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/docker'
   args:
     - 'build'
     - '-t'
